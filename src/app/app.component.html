@@ -1,0 +1,46 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="board">
+  <div class="section endsection">
+    <div title="{{player1Mancala.stoneCount}}" class="pit mancala">
+      <li class="stone" *ngFor='let in of counter(player1Mancala.stoneCount) ;let j = index' [ngStyle]="{         
+        'top.px': stoneCoordinates[j].y,
+        'left.px': stoneCoordinates[j].x
+      }"></li>
+    </div>
+  </div>
+  <div class="section midsection">
+    <div class="midrow topmid">
+      <div title="{{pit.stoneCount}}" class="pit" *ngFor="let pit of player1Pits.reverse(); let i = index"
+        (click)="selectPit(1, 5-i)">
+        <li class="stone" *ngFor='let in of counter(pit.stoneCount) ;let j = index' [ngStyle]="{         
+          'top.px': stoneCoordinates[j].y,
+          'left.px': stoneCoordinates[j].x
+        }"></li>
+      </div>
+    </div>
+    <div class="midrow botmid">
+      <div title="{{pit.stoneCount}}" class="pit" *ngFor="let pit of player2Pits; let i = index"
+        (click)="selectPit(2, i)">
+        <li class="stone" *ngFor='let in of counter(pit.stoneCount) ;let j = index' [ngStyle]="{         
+          'top.px': stoneCoordinates[j].y,
+          'left.px': stoneCoordinates[j].x
+        }"></li>
+      </div>
+    </div>
+  </div>
+  <div class="section endsection">
+    <div title="{{player2Mancala.stoneCount}}" class="pit mancala">
+      <li class="stone" *ngFor='let in of counter(player2Mancala.stoneCount) ;let j = index' [ngStyle]="{         
+        'top.px': stoneCoordinates[j].y,
+        'left.px': stoneCoordinates[j].x
+      }"></li>
+    </div>
+  </div>
+  <div class="section score">
+    <h1>SCORE</h1>
+    <div>Player1: {{player1Mancala.stoneCount}}</div>
+    <div>Player2: {{player2Mancala.stoneCount}}</div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
